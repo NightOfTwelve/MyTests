@@ -1,6 +1,480 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:OpenSource/ocmock-master"
+      name = "ocmock-master">
+      <Group
+         location = "group:Examples"
+         name = "Examples">
+         <Group
+            location = "group:ArcExample"
+            name = "ArcExample">
+            <Group
+               location = "group:ArcExample"
+               name = "ArcExample">
+               <FileRef
+                  location = "group:ArcExample-Prefix.pch">
+               </FileRef>
+               <FileRef
+                  location = "group:ArcExample.1">
+               </FileRef>
+               <FileRef
+                  location = "group:main.m">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:ArcExample.xcodeproj">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:iOS5Example"
+            name = "iOS5Example">
+            <Group
+               location = "group:iOS5Example"
+               name = "iOS5Example">
+               <FileRef
+                  location = "group:AppDelegate.h">
+               </FileRef>
+               <FileRef
+                  location = "group:AppDelegate.m">
+               </FileRef>
+               <FileRef
+                  location = "group:DetailViewController.h">
+               </FileRef>
+               <FileRef
+                  location = "group:DetailViewController.m">
+               </FileRef>
+               <Group
+                  location = "group:en.lproj"
+                  name = "en.lproj">
+                  <FileRef
+                     location = "group:InfoPlist.strings">
+                  </FileRef>
+                  <FileRef
+                     location = "group:MainStoryboard_iPad.storyboard">
+                  </FileRef>
+                  <FileRef
+                     location = "group:MainStoryboard_iPhone.storyboard">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:iOS5Example-Info.plist">
+               </FileRef>
+               <FileRef
+                  location = "group:iOS5Example-Prefix.pch">
+               </FileRef>
+               <FileRef
+                  location = "group:main.m">
+               </FileRef>
+               <FileRef
+                  location = "group:MasterViewController.h">
+               </FileRef>
+               <FileRef
+                  location = "group:MasterViewController.m">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:iOS5Example.xcodeproj">
+            </FileRef>
+            <Group
+               location = "group:iOS5ExampleTests"
+               name = "iOS5ExampleTests">
+               <Group
+                  location = "group:en.lproj"
+                  name = "en.lproj">
+                  <FileRef
+                     location = "group:InfoPlist.strings">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:iOS5ExampleTests-Info.plist">
+               </FileRef>
+               <FileRef
+                  location = "group:iOS5ExampleTests.h">
+               </FileRef>
+               <FileRef
+                  location = "group:iOS5ExampleTests.m">
+               </FileRef>
+               <FileRef
+                  location = "group:ProtocolTests.h">
+               </FileRef>
+               <FileRef
+                  location = "group:ProtocolTests.m">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:usr"
+               name = "usr">
+               <Group
+                  location = "group:include"
+                  name = "include">
+                  <Group
+                     location = "group:OCMock"
+                     name = "OCMock">
+                     <FileRef
+                        location = "group:NSNotificationCenter+OCMAdditions.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:OCMArg.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:OCMConstraint.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:OCMock.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:OCMockObject.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:OCMockRecorder.h">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:lib"
+                  name = "lib">
+                  <FileRef
+                     location = "group:libOCMock.a">
+                  </FileRef>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:iPhoneExample"
+            name = "iPhoneExample">
+            <Group
+               location = "group:Classes"
+               name = "Classes">
+               <FileRef
+                  location = "group:iPhoneExampleAppDelegate.h">
+               </FileRef>
+               <FileRef
+                  location = "group:iPhoneExampleAppDelegate.m">
+               </FileRef>
+               <FileRef
+                  location = "group:RootViewController.h">
+               </FileRef>
+               <FileRef
+                  location = "group:RootViewController.m">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:iPhoneExample-Info.plist">
+            </FileRef>
+            <FileRef
+               location = "group:iPhoneExample.xcodeproj">
+            </FileRef>
+            <FileRef
+               location = "group:iPhoneExample_Prefix.pch">
+            </FileRef>
+            <FileRef
+               location = "group:iPhoneExampleTests-Info.plist">
+            </FileRef>
+            <Group
+               location = "group:Libraries"
+               name = "Libraries">
+               <Group
+                  location = "group:Headers"
+                  name = "Headers">
+                  <Group
+                     location = "group:OCMock"
+                     name = "OCMock">
+                     <FileRef
+                        location = "group:NSNotificationCenter+OCMAdditions.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:OCMArg.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:OCMConstraint.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:OCMock.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:OCMockObject.h">
+                     </FileRef>
+                     <FileRef
+                        location = "group:OCMockRecorder.h">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <FileRef
+                  location = "group:libOCMock.a">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:main.m">
+            </FileRef>
+            <FileRef
+               location = "group:MainWindow.xib">
+            </FileRef>
+            <FileRef
+               location = "group:OCMockLogo.png">
+            </FileRef>
+            <FileRef
+               location = "group:RootViewController.xib">
+            </FileRef>
+            <Group
+               location = "group:Tests"
+               name = "Tests">
+               <FileRef
+                  location = "group:RootViewControllerTests.h">
+               </FileRef>
+               <FileRef
+                  location = "group:RootViewControllerTests.m">
+               </FileRef>
+            </Group>
+         </Group>
+      </Group>
+      <FileRef
+         location = "group:README.md">
+      </FileRef>
+      <Group
+         location = "group:Source"
+         name = "Source">
+         <FileRef
+            location = "group:Changes.txt">
+         </FileRef>
+         <Group
+            location = "group:Frameworks"
+            name = "Frameworks">
+            <FileRef
+               location = "group:OCHamcrest.tar.bz2">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:License.txt">
+         </FileRef>
+         <Group
+            location = "group:OCMock"
+            name = "OCMock">
+            <Group
+               location = "group:en.lproj"
+               name = "en.lproj">
+               <FileRef
+                  location = "group:InfoPlist.strings">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:NSInvocation+OCMAdditions.h">
+            </FileRef>
+            <FileRef
+               location = "group:NSInvocation+OCMAdditions.m">
+            </FileRef>
+            <FileRef
+               location = "group:NSMethodSignature+OCMAdditions.h">
+            </FileRef>
+            <FileRef
+               location = "group:NSMethodSignature+OCMAdditions.m">
+            </FileRef>
+            <FileRef
+               location = "group:NSNotificationCenter+OCMAdditions.h">
+            </FileRef>
+            <FileRef
+               location = "group:NSNotificationCenter+OCMAdditions.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCClassMockObject.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCClassMockObject.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCClassMockRecorder.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCClassMockRecorder.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMArg.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMArg.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMBlockCaller.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMBlockCaller.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMBoxedReturnValueProvider.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMBoxedReturnValueProvider.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMConstraint.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMConstraint.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMExceptionReturnValueProvider.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMExceptionReturnValueProvider.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMIndirectReturnValueProvider.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMIndirectReturnValueProvider.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMNotificationPoster.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMNotificationPoster.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMObserverRecorder.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMObserverRecorder.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMock-Info.plist">
+            </FileRef>
+            <FileRef
+               location = "group:OCMock-Prefix.pch">
+            </FileRef>
+            <FileRef
+               location = "group:OCMock.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMockClassObject.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMockClassObject.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMockObject.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMockObject.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMockRecorder.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMockRecorder.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMPassByRefSetter.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMPassByRefSetter.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMRealObjectForwarder.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMRealObjectForwarder.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMReturnValueProvider.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMReturnValueProvider.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCObserverMockObject.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCObserverMockObject.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCPartialMockObject.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCPartialMockObject.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCPartialMockRecorder.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCPartialMockRecorder.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCProtocolMockObject.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCProtocolMockObject.m">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:OCMock.xcodeproj">
+         </FileRef>
+         <Group
+            location = "group:OCMockLib"
+            name = "OCMockLib">
+            <FileRef
+               location = "group:OCMockLib-Prefix.pch">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:OCMockTests"
+            name = "OCMockTests">
+            <Group
+               location = "group:en.lproj"
+               name = "en.lproj">
+               <FileRef
+                  location = "group:InfoPlist.strings">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:NSInvocationOCMAdditionsTests.h">
+            </FileRef>
+            <FileRef
+               location = "group:NSInvocationOCMAdditionsTests.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMConstraintTests.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMConstraintTests.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMockObjectHamcrestTests.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMockObjectHamcrestTests.mm">
+            </FileRef>
+            <FileRef
+               location = "group:OCMockObjectTests.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMockObjectTests.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMockRecorderTests.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCMockRecorderTests.m">
+            </FileRef>
+            <FileRef
+               location = "group:OCMockTests-Info.plist">
+            </FileRef>
+            <FileRef
+               location = "group:OCObserverMockObjectTests.h">
+            </FileRef>
+            <FileRef
+               location = "group:OCObserverMockObjectTests.m">
+            </FileRef>
+         </Group>
+      </Group>
+      <Group
+         location = "group:Tools"
+         name = "Tools">
+         <FileRef
+            location = "group:build.rb">
+         </FileRef>
+      </Group>
+   </Group>
    <FileRef
       location = "group:DemoGHUnitSample/DemoGHUnitSample.xcodeproj">
    </FileRef>
