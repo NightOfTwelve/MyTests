@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/Three20Network/Base
+END
+TTDebugFlags.h
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/Three20Network/Base/TTDebugFlags.h
+END
+TTCorePreprocessorMacros.h
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/Three20Network/Base/TTCorePreprocessorMacros.h
+END
+TTDebug.h
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/Three20Network/Base/TTDebug.h
+END
+TTErrorCodes.h
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/Three20Network/Base/TTErrorCodes.h
+END
+TTGlobalCore.h
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/Three20Network/Base/TTGlobalCore.h
+END
+TTGlobalCorePaths.h
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/Three20Network/Base/TTGlobalCorePaths.h
+END
+TTDebug.m
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/Three20Network/Base/TTDebug.m
+END
+TTErrorCodes.m
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/Three20Network/Base/TTErrorCodes.m
+END
+TTGlobalCore.m
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/Three20Network/Base/TTGlobalCore.m
+END
+TTGlobalCorePaths.m
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/Three20Network/Base/TTGlobalCorePaths.m
+END

@@ -1,0 +1,34 @@
+"Logout" = "解除绑定";
+"Are you sure you want to logout of all share services?" = "你确定要解除绑定吗?";
+
+"Create a free account at %@" = "在%@创建一个免费的账户";
+"Create an account at %@" = "在%@创建一个账户";
+
+"Message is too long" = "信息太长";
+"Tencent posts can only be 140 characters in length." = "腾讯微博最多只能发送140个字.";
+"Sina posts can only be 140 characters in length." = "新浪微博最多只能发送140个字.";
+"Message is empty" = "信息为空";
+"You must enter a message in order to post." = "信息不能为空";
+
+"Enter your message:" = "输入你的信息:";
+
+
+"You must be online in order to share with %@" = "你必须在网上登录到 %@";
+"There was an error while sharing" = "分享时遇到一个错误";
+
+"Could not authenticate you. Please relogin." = "无法验证您的身份.请重新登录.";
+"There was a problem requesting authorization from %@" = "从%@请求授权时遇到一个错误.";
+"Request Error" = "请求错误";
+"There was an error while sharing" = "分享时遇到一个错误";
+
+"Authorize Error" = "授权错误";
+"There was an error while authorizing" = "授权时遇到一个错误";
+
+"Authenticating..." = "授权中...";
+"There was a problem requesting access from %@" = "从%@请求访问时遇到一个错误";
+
+"Access Error" = "访问错误";
+"There was an error while sharing" = "分享时遇到一个错误";
+"Connecting..." = "连接中...";
+"Close" = "关闭";
+"Edit" = "编辑";

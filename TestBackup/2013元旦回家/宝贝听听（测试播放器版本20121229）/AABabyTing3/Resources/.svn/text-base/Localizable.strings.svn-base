@@ -1,0 +1,185 @@
+/* 
+  Localization.strings
+  BabyTing
+
+  Created by Song Magic on 12-3-2.
+  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+*/
+
+"welcome to stories ocean" = "欢/迎/来/到/故/事/海/洋/开/启/快/乐/的/航/海/之/旅/！";
+"click the story tree" = "点击故事树";
+"pick the story fruit" = "摘取故事果";
+"baby" = "宝宝";
+"first name the baby`s ship" = "先来给宝宝的船";
+"named please" = "起一个名字吧！";
+"baby" = "宝宝";
+"have not open yet" = "未开放";
+"suggest updating new version" = "故事分类有增加,建议您更新版本";
+"collect story success" = "故事收藏成功";
+"story has been collected" = "故事已经收藏过";
+"OK" = "确定";
+"please choose story to collect" = "请选择在线故事收藏";
+
+//故事名字
+"the wolf is coming" = "狼来了";
+"Snow White" = "白雪公主";
+"the monkey drag for the moon" = "猴子捞月亮";
+"Wen's blanket" = "阿文的小毯子";
+"the frog sleep at lunch" = "青蛙小弟睡午觉";
+
+"introduce of the wolf is coming" = "放羊的小孩子骗农夫们说狼来了，看到农夫们受骗上当的样子，放羊娃觉得很有趣。可是这次狼真的来了，有没有人去帮放羊的小孩打狼呢？";
+"introduce of Snow White" = "可爱美丽的公主因为继母嫉妒她美貌而被迫逃到森林，她遇见七个善良的小矮人,在小矮人的帮助下，克服了继母的诅咒，找到真爱的王子......";
+"introduce of the monkey drag for the moon" = "一群猴子看到水井中的月亮倒影,认为月亮掉到水里了,于是猴子们便去捞月亮,但是怎么也捞不上来......";
+"introduce of Wen's blanket" = "一只叫阿文的小老鼠的,他有个习惯,无论走路、吃饭、睡觉还是和其他小朋友玩时,都要带着他的小毯子。他上小学了仍然不能离开小毯子。阿文的妈妈爸爸决定要改变这样的情况......";
+"introduce of the frog sleep at lunch" = "青蛙小弟睡午觉时，螳螂、蜥蜴...好多动物陆续过来要吃掉他。.....接下来，蜥蜴又被什么吓跑了呢？青蛙小弟最终能不能转危为安呢？";
+
+"loading..." = "加载中...";
+"“%@” begin to download" = "“%@”开始下载～";
+"“%@”download completed" = "“%@”下载完成";
+"“%@”download completed,click to view" = "“%@”下载完成，点击查看";
+"story have downloadeds" = "故事已下载～";
+"wait for downloading" = "等待下载呢～";
+"The cabin is full" = "船舱最多保存10个故事，删除一些再下载吧～";
+"Now is not the WiFi network, pay attention to the flow oh ~" = "现在不是WiFi网络，注意流量哦～";
+"A single play mode does not support time function" = "单个播放模式下不支持定时功能";
+
+//分享微博部分(目前还没用到,若ShareKit代码被删,此处也可以删掉)
+"Logout" = "解除绑定";
+"Are you sure you want to logout of all share services?" = "你确定要解除绑定吗?";
+
+"Create a free account at %@" = "在%@创建一个免费的账户";
+"Create an account at %@" = "在%@创建一个账户";
+
+"Message is too long" = "信息太长";
+"Tencent posts can only be 140 characters in length." = "腾讯微博最多只能发送140个字.";
+"Sina posts can only be 140 characters in length." = "新浪微博最多只能发送140个字.";
+"Message is empty" = "信息为空";
+"You must enter a message in order to post." = "信息不能为空";
+
+"Enter your message:" = "输入你的信息:";
+
+
+"You must be online in order to share with %@" = "你必须在网上登录到 %@";
+"There was an error while sharing" = "分享时遇到一个错误";
+
+"Could not authenticate you. Please relogin." = "无法验证您的身份.请重新登录.";
+"There was a problem requesting authorization from %@" = "从%@请求授权时遇到一个错误.";
+"Request Error" = "请求错误";
+"There was an error while sharing" = "分享时遇到一个错误";
+
+"Authorize Error" = "授权错误";
+"There was an error while authorizing" = "授权时遇到一个错误";
+
+"Authenticating..." = "授权中...";
+"There was a problem requesting access from %@" = "从%@请求访问时遇到一个错误";
+
+"Access Error" = "访问错误";
+"There was an error while sharing" = "分享时遇到一个错误";
+"Connecting..." = "连接中...";
+"Close" = "关闭";
+"Edit" = "编辑";
+
+"Email" = "电子邮箱";
+"Username" = "用户名";
+"Password" = "密码";
+"Follow %@" = "关注 %@";
+"Continue" = "继续";
+"Share" = "分享";
+"More..." = "更多...";
+"Cancel" = "取消";
+"Slug" = "Slug";
+"Private" = "私密";
+"Public" = "公开";
+"Caption" = "说明";
+"Title" = "标题";
+"Tags" = "标签";
+"Close" = "关闭";
+"Notes" = "Notes";
+"Note" = "Note";
+"Share" = "分享";
+"Shared" = "分享成功";
+"Edit" = "编辑";
+"Actions" = "动作";
+"Services" = "服务";
+"Send to %@" = "发送到 %@";
+"Copy" = "复制";
+"Copied!" = "复制成功!";
+"Saving to %@" = "保存到 %@";
+"Saved!" = "发送成功。";
+"Offline" = "离线";
+"Error" = "错误";
+"Login" = "登录";
+"Logging In..." = "登录中...";
+"Login Error" = "登录错误";
+"Connecting..." = "连接中...";
+
+"Shortening URL..." = "简化网址...";
+"Shorten URL Error" = "简化网址错误";
+"We could not shorten the URL." = "不能简化这个网址";
+
+"Create a free account at %@" = "创建一个免费的账号在 %@";
+"Create an account at %@" = "创建一个账号在 %@";
+
+"Send to Twitter" = "发送到 Twitter";
+
+"Message is too long" = "信息太长";
+"Twitter posts can only be 140 characters in length." = "Twitter 最多只能发送140个字符.";
+"Message is empty" = "信息是空的";
+"You must enter a message in order to post." = "信息不能为空.";
+
+"Enter your message:" = "输入你的消息:";
+
+"Invalid email or password." = "无效的邮箱或密码.";
+"The service encountered an error. Please try again later." = "服务发生一个错误. 请稍后重试.";
+"There was a sending your post to Tumblr." = "正在发送你的日志Tumblr.";
+
+"There was an error saving to Pinboard" = "发生一个错误在保存到 Pinboard";
+
+"Sorry, Instapaper did not accept your credentials. Please try again." = "抱歉, Instapaper 不接受你的证书. 请重试.";
+"Sorry, Instapaper encountered an error. Please try again." = "抱歉, Instapaper 发生一个错误. 请重试.";
+"There was a problem saving to Instapaper." = "发生一个问题在保存到 Instapaper.";
+
+"Incorrect username and password" = "无效的用户名和密码";
+"There was an error logging into Google Reader" = "发生了一个错误在登录 Google Reader";
+"There was a problem authenticating your account." = "授权你的账户时发生了一个问题.";
+"There was a problem saving your note." = "保存你的日志时发生了一个问题";
+
+"There was a problem saving to Delicious." = "发生了一个问题在保存到 Delicious.";
+
+"Open in Safari" = "在Safari中打开";
+"Attached: %@" = "附件: %@";
+
+"You must be online to login to %@" = "你必须在线登录 %@";
+
+"Auto Share" = "自动分享";
+"Enable auto share to skip this step in the future." = "打开自动分享，以后不再提醒.";
+
+"You must be online in order to share with %@" = "你必须保持在线，以便能够分享到 %@";
+"There was an error while sharing" = "分享时产生一个错误";
+
+"Could not authenticate you. Please relogin." = "不能授权. 请重新登录.";
+"There was a problem requesting authorization from %@" = "请求授权 %@ 时，发生一个错误";
+"Request Error" = "请求错误";
+"There was an error while sharing" = "分享时产生一个错误";
+
+"Authorize Error" = "授权错误";
+"There was an error while authorizing" = "授权时发生一个错误";
+
+"Authenticating..." = "授权中...";
+"There was a problem requesting access from %@" = "发生一个问题在请求通过 %@ 时";
+
+"Access Error" = "访问错误";
+"There was an error while sharing" = "分享时产生一个错误";
+
+"The request timed out" = "请求超时";
+"Authentication needed" = "需要授权";
+"The request was cancelled" = "请求已被取消";
+"Unable to create request (bad url?)" = "不能创建请求，可能是URL错误";
+"The request failed because it redirected too many times" = "请求失败，因为请求次数过多";
+//分享微博部分 end
+
+//用户评分
+"Support the BabyTing, give a five star ～" = "支持一下宝贝听听，\n给个5分吧～";
+"Later" = "以后再说";
+"Good" = "好的";
+"No longer tip" = "不再提示";

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/ShareKit/RenrenSDK/include
+END
+RMConnectCenter.h
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/ShareKit/RenrenSDK/include/RMConnectCenter.h
+END
+RMCommonContextPublic.h
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/ShareKit/RenrenSDK/include/RMCommonContextPublic.h
+END
+RMHeartbeatNewMessage.h
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/ShareKit/RenrenSDK/include/RMHeartbeatNewMessage.h
+END
+RMUser.h
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/ShareKit/RenrenSDK/include/RMUser.h
+END
+RMUserGetInfoContext.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/ShareKit/RenrenSDK/include/RMUserGetInfoContext.h
+END
+RMUserObject.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/ShareKit/RenrenSDK/include/RMUserObject.h
+END
+RMObject.h
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/ShareKit/RenrenSDK/include/RMObject.h
+END
+RMConnectCenterDelegates.h
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/ShareKit/RenrenSDK/include/RMConnectCenterDelegates.h
+END
+RMRequestContextDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/ShareKit/RenrenSDK/include/RMRequestContextDelegate.h
+END
+RMError.h
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/ShareKit/RenrenSDK/include/RMError.h
+END
+RMGetUserInfoResponse.h
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/Opensource/ShareKit/RenrenSDK/include/RMGetUserInfoResponse.h
+END

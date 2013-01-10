@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/mqq_BabyTing_rep/!svn/ver/8423/BabyTing_iphone_proj/trunk/AABabyTing3/AABabyTing3/Classes/BTFeedback
+END
+BTFeedbackRecord.h
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/AABabyTing3/Classes/BTFeedback/BTFeedbackRecord.h
+END
+BTFeedbackSingletonAction.h
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/AABabyTing3/Classes/BTFeedback/BTFeedbackSingletonAction.h
+END
+BTFeedbackRecords.h
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/AABabyTing3/Classes/BTFeedback/BTFeedbackRecords.h
+END
+BTFeedbackRecord.m
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/AABabyTing3/Classes/BTFeedback/BTFeedbackRecord.m
+END
+BTFeedbackSingletonService.h
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/AABabyTing3/Classes/BTFeedback/BTFeedbackSingletonService.h
+END
+BTFeedbackSingletonAction.m
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/mqq_BabyTing_rep/!svn/ver/8255/BabyTing_iphone_proj/trunk/AABabyTing3/AABabyTing3/Classes/BTFeedback/BTFeedbackSingletonAction.m
+END
+BTFeedbackRecords.m
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/mqq_BabyTing_rep/!svn/ver/8423/BabyTing_iphone_proj/trunk/AABabyTing3/AABabyTing3/Classes/BTFeedback/BTFeedbackRecords.m
+END
+BTFeedbackSingletonService.m
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/mqq_BabyTing_rep/!svn/ver/8423/BabyTing_iphone_proj/trunk/AABabyTing3/AABabyTing3/Classes/BTFeedback/BTFeedbackSingletonService.m
+END

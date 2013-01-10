@@ -1,0 +1,727 @@
+
+
+#import "BTPlayerAction.h"
+#import "BTConstant.h"
+#import "BTUtilityClass.h"
+#import "Reachability.h"
+#import "BTStoryEncryAndDec.h"
+#import "BTStory.h"
+#import "BTWeiboActivityAlert.h"
+#import "BTWeiboActivityManager.h"
+#import "BTAppDelegate.h"
+#import "BTPlayerManager.h"
+@implementation BTPlayerAction
+@synthesize player = _player;
+@synthesize playList = _playList;
+@synthesize playingStoryIndex = _playingStoryIndex;
+@synthesize storyType = _storyType;
+@synthesize shareImageUrl = _shareImageUrl;
+@synthesize isFinishPlaying =_isFinishPlaying;
+@synthesize bIsReadyToPlay = _bIsReadyToPlay;
+@synthesize sharePicImage;
+-(id)init {
+    if ((self = [super init])) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(weiboShareSuc:)
+                                                     name:NOTIFICATION_WEIBO_SHARESUCCESS object:nil];
+        [[NSNotificationCenter defaultCenter]  addObserver:self
+                                                  selector:@selector(CMAudioPlayerAudioDidFinishLoading)
+                                                      name:AudioStreamPlayerAudioDidFinishLoadingNotification object:nil];
+        
+    }
+    return self;
+}
+
+#pragma mark-
+#pragma mark 微博分享成功的通知回调
+
+- (void)weiboShareSuc:(NSNotification *)notification{
+    NSDictionary *passDic = notification.userInfo;
+    NSString  *weiboType = [passDic objectForKey:@"weiboType"];
+    BTWeiboActivityManager *manager = [[BTWeiboActivityManager alloc] init];
+    NSDictionary *dic = [manager weiboActivityInfoWithWeiboType:weiboType];
+    if ([dic count] == 0) {
+		[manager release];
+        return;
+    }else{
+        NSString *mes = [dic objectForKey:@"message"];
+        NSString *runUrl = [dic objectForKey:@"download_url"];
+        NSString *spaceMes = @"      ";
+        mes = [spaceMes stringByAppendingString:mes];
+        BTWeiboActivityAlert *weiboAlert = [[BTWeiboActivityAlert alloc] initWithMessage:mes runurl:runUrl];
+        BTAppDelegate *delegate = (BTAppDelegate *)[UIApplication sharedApplication].delegate;
+        [delegate.window addSubview:weiboAlert];
+		[[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WEIBO_ALERT_SHARESUCCESS object:nil userInfo:nil];
+        [weiboAlert release];
+    }
+    [manager release];
+}
+
+
+- (NSDictionary *)tmpSavingPath:(BTStory *)currentStory{
+    
+    NSString *savingPath = nil;
+    NSString *cachePath = nil;
+
+    NSString  *currentStroyID = currentStory.storyId;
+    
+    NSString *highComplete = [BTUtilityClass fileWithCacheFolderPath:[NSString stringWithFormat:@"cache_%d_%@.mp3",High_Complete,currentStroyID]];
+    NSString *highIncomplete = [BTUtilityClass fileWithCacheFolderPath:[NSString stringWithFormat:@"cache_%d_%@.mp3",High_Incomplete,currentStroyID]];
+    NSString *lowComplete = [BTUtilityClass fileWithCacheFolderPath:[NSString stringWithFormat:@"cache_%d_%@.mp3",Low_Complete,currentStroyID]];
+    NSString *lowIncomplete = [BTUtilityClass fileWithCacheFolderPath:[NSString stringWithFormat:@"cache_%d_%@.mp3",Low_Incomplete,currentStroyID]];
+    
+    BOOL exist_HighComplete = [[NSFileManager defaultManager] fileExistsAtPath:highComplete];
+    BOOL exist_HighIncomplete = [[NSFileManager defaultManager] fileExistsAtPath:highIncomplete];
+    BOOL exist_LowComplete = [[NSFileManager defaultManager] fileExistsAtPath:lowComplete];
+    BOOL exist_LowIncomplete = [[NSFileManager defaultManager] fileExistsAtPath:lowIncomplete];
+    
+    BOOL net_Wifi = [BTUtilityClass isNetWifi];
+    BOOL net_3G = [BTUtilityClass isNet3G];
+    
+    
+    //在wifi条件下
+    if(net_Wifi){
+        //先判断有没有完成的缓存,有直接拿出来
+        if(exist_HighComplete){//①wifi网络下，本地有高清（完整）缓存故事：播放本地高清缓存故事
+            cachePath = highComplete;
+            savingPath = highComplete;
+        }else{
+            if(exist_HighIncomplete){     //②wifi网络下，本地有高清（不完整）缓存故事：播放本地不完整的缓存故事，同时拉取剩余未缓存内容。
+                cachePath = highIncomplete;
+            }
+            if(exist_LowComplete){  //3.wifi网络下，本地有低清（完整/不完整）缓存故事，先清空本地缓存，再从网络中拉取高清故事，放入缓存中 。
+                [self deleteLowCache:lowComplete];
+            }else if(exist_LowIncomplete){
+                [self deleteLowCache:lowIncomplete];
+            }
+
+            savingPath = highIncomplete;
+        }
+    }else if(net_3G){
+        if(exist_HighComplete){//4,3G网络下，本地有高清（完整）缓存故事：播放本地缓存高清内容。
+            savingPath = highComplete;
+            cachePath = highComplete;
+        }
+        if (exist_LowComplete) { //5.3G网络下，本地有低清（完整/不完整）缓存故事：播放本地缓存低清内容，不完整故事继续从网上拉取。
+            savingPath = lowComplete;
+            cachePath = lowComplete;
+        }else{      //3G网络下，本地有高清（不完整）缓存故事：播放网络拉取低清资源，高清不删除。  //编者注：反正也不删除，写不用判断了。。
+            savingPath = lowIncomplete;
+        }
+    }else {
+        //do nothing
+    }
+    NSMutableDictionary * resultDic = [NSMutableDictionary dictionary];
+    [resultDic setValue:savingPath forKey:@"SavingPath"];
+    //cachePath可能为空
+    [resultDic setValue:cachePath forKey:@"CachePath"];
+    
+    return resultDic;
+}
+
+
+- (NSString *)playUrlPath:(BTStory *)currentStory{
+    //StoryType defaultType =StoryType_Default;
+    NSString *storyName = currentStory.storyId;
+    NSString *storyUrl = nil;
+    BOOL specType = NO;    //处理本地故事，但是本地却找不到文件情况
+    //本地故事
+    if(_storyType == StoryType_Local){
+        storyUrl = [BTUtilityClass fileWithPath:[NSString stringWithFormat:@"%@.mp3",storyName]];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:storyUrl]) {
+            return storyUrl;
+        }else{
+            specType = YES;
+        }
+    }else if(_storyType == StoryType_Net || _storyType == StoryType_Radio){
+        //先判断本地有没有这个资源，如果有，则直接url获取播放
+        storyUrl = [BTUtilityClass fileWithPath:[NSString stringWithFormat:@"%@.mp3",storyName]];
+        if([[NSFileManager defaultManager] fileExistsAtPath:storyUrl]){
+            return storyUrl;
+        }else{
+            if([BTUtilityClass isNetWifi]){
+                storyUrl = currentStory.highAudioDownLoadUrl;
+            }else{
+                storyUrl = currentStory.lowAudioDownLoadUrl;
+            }
+            return storyUrl;
+        }
+    }else{
+        //那就出错误了。。
+        DLog(@"外层传的有问题");
+    }
+    
+    
+    if(specType){//很不巧，这时候本地应该有的故事  怎么就没了？还要处理，直接从网络上播放高清的音频吧。
+        storyUrl = currentStory.highAudioDownLoadUrl;
+        return storyUrl;
+    }
+    return nil;
+}
+
+-(BOOL)isNetUrl:(NSString *)urlString {
+    if ([urlString hasPrefix:@"http"]) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)playStory{
+    BTStory *currentStory = (BTStory *)[_playList objectAtIndex:_playingStoryIndex];
+    NSDictionary *dic = [self tmpSavingPath:currentStory];
+    //下面两个为空也可以
+    NSString *cachePath = [dic valueForKey:@"CachePath"];
+    NSString *savingPath = [dic valueForKey:@"SavingPath"];
+//    NSString *playUrl = [self playUrlPath:currentStory];
+	NSString *playUrl = @"http://127.0.0.1/music/独家记忆.mp3";
+    
+    if (_player) {
+        NSDictionary *flowDateAndNum = [BTUserDefaults saveFlowAndDate];
+        int nowYearAndMonth = [BTUtilityClass getCurrentYearAndMonth];
+        int plistRecordDate = [[flowDateAndNum valueForKey:KEY_SAVEFLOW_DATE] intValue];
+        double plistRecordNum = [[flowDateAndNum valueForKey:KEY_SAVEFLOW_NUM] doubleValue];
+        if(nowYearAndMonth != plistRecordDate){
+            plistRecordNum = 0.0f;
+        }
+        
+        plistRecordNum += [_player getTmpDataLength]/1024.0f/1024.0f;
+        if(plistRecordNum >showSaveFLowUpline){
+            plistRecordNum = showSaveFLowUpline;
+        }
+        NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithDouble:plistRecordNum],KEY_SAVEFLOW_NUM,[NSNumber numberWithInt:nowYearAndMonth],KEY_SAVEFLOW_DATE, nil];
+        
+        [BTUserDefaults setSaveFlowAndDate:dic];
+        
+        //清空之前的player
+        [self destroyStreamer];
+    }
+    _player = [[AudioModel alloc] init];
+    if(self.storyType == StoryType_Radio || self.storyType == StoryType_Local){
+        _player.allowCache = NO;
+    }else{
+        _player.allowCache = YES;
+    }
+    if(currentStory.encryType != 0){
+        _player.decryptClass = [BTStoryEncryAndDec class];
+        _player.decryptMethod = @selector(decryptData:type:);
+    }else{
+        _player.decryptClass = nil;
+        _player.decryptMethod = nil;
+    }
+    _player.encryptClass = nil;
+    _player.encryptMethod = nil;
+    //    if([self  isNetUrl:playUrl]){
+    //        //播放在线音频
+    //    }else{
+    //        //本地了呗
+    //    }
+    //这两个变量是不是应该是一个地址
+    _player.savingPath = savingPath;
+    [_player setURLString:playUrl fileName:cachePath];
+    [self updateCacheStoryOrder:currentStory];
+    
+    DLog(@"playurl = %@ , savingPath = %@",playUrl,savingPath);
+    _bIsReadyToPlay = NO;
+	//CDLog(BTDFLAG_AudioStreamer,@"storyUrl=%@",playUrl);
+	
+	
+    
+    //支持后台和锁屏播放
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    
+    
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PLAY_STORY object:currentStory.storyId];
+    [BTPlayerManager sharedInstance].playingStoryId = currentStory.storyId;
+    
+    
+    [BTUtilityClass setStoryIsOld:currentStory.storyId];
+    
+}
+
+//用来更新缓存文件夹的故事排序的
+- (void)updateCacheStoryOrder:(BTStory *)currentStory{
+    CDLog(Neoadd,@"update!!!");
+    NSString *filepath = [BTUtilityClass fileWithCacheFolderPath:STORYCACHE_PLIST_NAME];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:filepath]){//都没有plist 就不用排序了。
+        return;
+    }
+    //在plist中得到缓存的故事
+    NSMutableArray *cacheStories = [NSMutableArray arrayWithContentsOfFile:filepath];
+    if([cacheStories containsObject:currentStory.storyId]){//缓存中没有这个故事，也不用排序了。有则排序
+        [cacheStories removeObject:currentStory.storyId];
+        [cacheStories addObject:currentStory.storyId];//把这个故事从plist的中间删除，然后放到最后，在写入plist
+        [cacheStories writeToFile:filepath atomically:YES];
+    }
+}
+
+
+//-(void) playStory {
+//	NSString *highComplete;
+//    NSString *highIncomplete;
+//    NSString *lowComplete;
+//    NSString *lowIncomplete = nil;
+//    BOOL exist_HighComplete;
+//    BOOL exist_HighIncomplete;
+//    BOOL exist_LowComplete;
+//    BOOL exist_LowIncomplete;
+//    BOOL net_Wifi;
+//    BOOL net_3G;
+//    BOOL isLowStory = NO;
+//    BOOL specType = NO;     //本地故事信息，但是音频文件被删除的情况
+//
+//	NSString *storyUrl;
+//	NSString *storyName;
+//    NSString *storyId;
+//    NSString *cacheString = nil;
+//
+//
+//
+//    BTStory *currentStory = (BTStory *)[_playList objectAtIndex:_playingStoryIndex];
+//	_isFinishPlaying = NO;
+//
+//	//获取storyUrl
+//	StoryType defaultType =StoryType_Default;
+//	storyId = currentStory.storyId;
+//    [BTPlayerManager sharedInstance].playingStoryId = storyId;
+//	storyName = currentStory.title;
+//    if(_storyType == StoryType_Local){
+//        storyUrl = [BTUtilityClass fileWithPath:[NSString stringWithFormat:@"%@.mp3",storyName]];
+//        if (![[NSFileManager defaultManager] fileExistsAtPath:storyUrl]) {
+//            specType = YES;
+//            storyUrl =currentStory.highAudioDownLoadUrl;
+//        }
+//	} else if (_storyType == StoryType_Net || _storyType == StoryType_Radio) {
+//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//		NSString *documentsDirectory = [paths objectAtIndex:0];
+//        NSString *str1 = [NSString stringWithFormat:@"cacheFolder/cache_%d_%@.mp3",High_Complete,storyId];
+//        NSString *str2 = [NSString stringWithFormat:@"cacheFolder/cache_%d_%@.mp3",High_Incomplete,storyId];
+//        NSString *str3 = [NSString stringWithFormat:@"cacheFolder/cache_%d_%@.mp3",Low_Complete,storyId];
+//        NSString *str4 = [NSString stringWithFormat:@"cacheFolder/cache_%d_%@.mp3",Low_Incomplete,storyId];
+//
+//        highComplete = [documentsDirectory stringByAppendingPathComponent:str1];
+//        highIncomplete = [documentsDirectory stringByAppendingPathComponent:str2];
+//        lowComplete = [documentsDirectory stringByAppendingPathComponent:str3];
+//        lowIncomplete = [documentsDirectory stringByAppendingPathComponent:str4];
+//
+//        exist_HighComplete = [[NSFileManager defaultManager] fileExistsAtPath:highComplete];
+//        exist_HighIncomplete = [[NSFileManager defaultManager] fileExistsAtPath:highIncomplete];
+//        exist_LowComplete = [[NSFileManager defaultManager] fileExistsAtPath:lowComplete];
+//        exist_LowIncomplete = [[NSFileManager defaultManager] fileExistsAtPath:lowIncomplete];
+//
+//        net_Wifi = [BTUtilityClass isNetWifi];
+//		net_3G = [BTUtilityClass isNet3G];
+//
+//
+//		//判断当前在线故事本地是否存在
+//		NSString *localfilePath = [BTUtilityClass fileWithPath:LOCALSTORY_PLIST_NAME_NEW];
+//		NSArray *localArray = [NSArray arrayWithContentsOfFile:localfilePath];
+//		BOOL bIsExistLocal = NO;
+//		for (NSDictionary *info in localArray) {
+//			NSString *localInfoId = [info objectForKey:KEY_STORY_ID];
+//			if([localInfoId isEqualToString:storyId])
+//			{
+//                NSString *storyPath = [BTUtilityClass fileWithPath:[NSString stringWithFormat:@"%@.mp3",currentStory.title]];
+//                if ([[NSFileManager defaultManager] fileExistsAtPath:storyPath]) {
+//                    bIsExistLocal = YES;
+//                    defaultType = StoryType_Net;
+//
+//                    _storyType = StoryType_Local;
+//                    storyUrl = [BTUtilityClass fileWithPath:[NSString stringWithFormat:@"%@.mp3",storyName]];
+//
+//                    break;
+//                }
+//			}
+//		}
+//
+//        if (specType) {
+//            if (exist_HighComplete) {
+//                cacheString = highComplete;
+//            } else if (exist_HighIncomplete) {
+//                cacheString = highIncomplete;
+//            }
+//
+//        } else if(!bIsExistLocal) {
+//
+//
+//
+//            //识别网络类型，播放不同品质的故事
+//            if (net_Wifi) {
+//
+//                storyUrl = currentStory.highAudioDownLoadUrl;
+//                isLowStory = NO;
+//
+//            }else if(net_3G){
+//                storyUrl = currentStory.lowAudioDownLoadUrl;
+//                isLowStory = YES;
+//            }
+//            else {
+//                storyUrl = currentStory.lowAudioDownLoadUrl;
+//                isLowStory  = YES;
+//            }
+//
+//
+//            if (exist_HighComplete && (net_Wifi || net_3G)) {
+//                //直接播放缓存
+//                cacheString = highComplete;
+//            } else if(exist_HighIncomplete) {
+//                if (net_Wifi) {
+//                    //播放高清且请求剩余数据
+//                    cacheString = highIncomplete;
+//                    if (exist_LowComplete) {
+//                        [self deleteLowCache:lowComplete];
+//                    } else if (exist_LowIncomplete) {
+//                        [self deleteLowCache:lowIncomplete];
+//                    }
+//                } else if (net_3G) {
+//                    if (exist_LowComplete) {
+//                        //直接播放缓存
+//                        cacheString = lowComplete;
+//                    } else if (exist_LowIncomplete) {
+//                        //播放低清且请求剩余数据
+//                        cacheString = lowIncomplete;
+//                    }
+//                }
+//            } else if(exist_LowComplete || exist_LowIncomplete) {
+//
+//                if (net_Wifi) {
+//                    //删除低清缓存重新请求高清数据
+//                    if (exist_LowComplete) {
+//                        [self deleteLowCache:lowComplete];
+//                    } else if (exist_LowIncomplete) {
+//                        [self deleteLowCache:lowIncomplete];
+//                    }
+//                } else if (net_3G) {
+//                    if (exist_LowComplete) {
+//                        cacheString = lowComplete;
+//                        //直接播放缓存
+//                    } else if (exist_LowIncomplete) {
+//                        //播放低清且请求剩余数据
+//                        cacheString = lowIncomplete;
+//                    }
+//                }
+//            }
+//		}
+//	}
+//
+//    if (_player) {
+//        [self destroyStreamer];
+//    }
+//    _player = [[AudioModel alloc] init];
+//    _player.isLowStory = isLowStory;
+//
+//	//savingPath:缓存地址
+//    if (net_Wifi && (StoryType_Net == _storyType || specType || _storyType == StoryType_Radio)) {
+//        _player.savingPath = highIncomplete;
+//    } else if (net_3G && (StoryType_Net == _storyType || _storyType == StoryType_Radio)) {
+//        _player.savingPath = lowIncomplete;
+//    }else{
+//        _player.savingPath = lowIncomplete;
+//    }
+//
+//	//specType==YES:播放本地有的在线故事
+//    //初始化播放器
+//    if (specType) {
+//
+//        _player.decryptClass = [BTStoryEncryAndDec class];
+//        _player.decryptMethod = @selector(decryptData:type:);
+//        _player.encryptClass = nil;
+//        _player.encryptMethod = nil;
+//        if(defaultType!=StoryType_Default)
+//        {
+//            _storyType = StoryType_Net;
+//        }
+//        storyUrl = [BTUtilityClass fileWithPath:[NSString stringWithFormat:@"%@.mp3",storyName]];
+//        DLog(@"网络故事本地有");
+//
+//
+//	}
+//	else if (_storyType == StoryType_Local) {
+//            _player.decryptClass = [BTStoryEncryAndDec class];
+//            _player.decryptMethod = @selector(decryptData:type:);
+//            _player.encryptClass = nil;
+//            _player.encryptMethod = nil;
+//            if(defaultType!=StoryType_Default)
+//            {
+//                _storyType = StoryType_Net;
+//            }
+//
+//	}else {
+//            _player.decryptClass = [BTStoryEncryAndDec class];
+//            _player.decryptMethod = @selector(decryptData:type:);
+//            _player.encryptClass = nil;
+//            _player.encryptMethod = nil;
+//        }
+//
+//    [_player setURLString:storyUrl fileName:cacheString];
+//   _bIsReadyToPlay = NO;
+//	CDLog(BTDFLAG_AudioStreamer,@"storyUrl=%@",storyUrl);
+//
+//
+//
+//   //支持后台和锁屏播放
+//   [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+//   [[AVAudioSession sharedInstance] setActive:YES error:nil];
+//
+//
+//
+//   [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PLAY_STORY object:storyId];
+//
+//
+//
+//    [BTUtilityClass setStoryIsOld:storyId];
+//
+//}
+-(void)playButtonPressed {
+    if (!_player) {
+        return;
+    }
+    
+    _player.startPause = NO;
+    
+    if (_player.state == AS_PLAYING) {
+        
+        [_player pause];
+        
+    } else if (_player.state == AS_PAUSED && _player.pauseReason == AS_STOPPING_TEMPORARILY) {
+        
+        [_player pause];
+    } else if (_player.state == AS_STOPPING) {
+        
+    } else{
+        
+        if (_isFinishPlaying) {
+            [self playStory];
+        } else {
+            [_player start];
+            
+        }
+    }
+}
+
+
+#pragma mark -
+#pragma mark CMAudioPlayer Notification
+-(void)CMAudioPlayerAudioDidFinishLoading{
+}
+
+
+- (void)destroyStreamer{
+    if (_player)
+    {
+        [[NSNotificationCenter defaultCenter]
+         removeObserver:self
+         name:ASStatusChangedNotification
+         object:_player];
+        
+        if (_player.dataReceive) {
+            [_player saveDataToFile:Buffer_Break];
+        }
+        [_player pause];
+        [_player stop];
+        [_player release];
+        _player = nil;
+    }
+}
+-(void)deleteLowCache:(NSString *)cacheFile {
+    NSError *error;
+    [[NSFileManager defaultManager] removeItemAtPath:cacheFile error:&error];
+}
+
+
+- (void)clickRenrenItem {
+    NSString *sharePicName = [self getSharePicName];
+    
+    BTStory *story = (BTStory *)[_playList objectAtIndex:_playingStoryIndex];
+    NSString *storyName = story.title;
+    
+    
+    SHKItem *item;
+    UIImage *shareImage = nil;
+    if ([[NSFileManager defaultManager] fileExistsAtPath:sharePicName]) {
+        shareImage = [UIImage imageWithContentsOfFile:sharePicName];
+    } else {
+        shareImage = [UIImage imageNamed:@"renren_shareImage.png"];
+    }
+    
+    item = [SHKItem image:shareImage title:[NSString stringWithFormat:@"我家宝贝正在听《%@》，推荐大家下载【宝贝听听】，10,000个儿童故事立刻全部拥有，iPhone下载地址：http://url.cn/0WpS2x",storyName]];
+    item.shareType = SHKShareTypeImage;
+    //     [NSClassFromString(@"SHKRenren") performSelector:@selector(shareItem:) withObject:item];
+    [[RMConnectCenter sharedCenter] launchDashboardSharePhotoRequiredImage:shareImage
+                                                           optionalCaption:[NSString stringWithFormat:@"我家宝贝正在听《%@》，推荐大家下载【宝贝听听】，10,000个儿童故事立刻全部拥有，iPhone下载地址：http://url.cn/0WpS2x",storyName]
+                                                                 placeData:nil
+                                                               andDelegate:self];
+    BTAppDelegate *delegate = (BTAppDelegate *)[UIApplication sharedApplication].delegate;
+    delegate.isRenrenShareShowing = YES;
+}
+
+- (void)clickTencentItem {
+    
+    NSString *sharePicName = [self getSharePicName];
+    UIImage *picImage = [UIImage imageWithContentsOfFile:sharePicName];
+    BTStory *story = (BTStory *)[_playList objectAtIndex:_playingStoryIndex];
+    NSString *storyName = story.title;
+    
+    SHKItem *item;
+    _shareImageUrl = [story.picDownLoadURLs objectAtIndex:0];
+    if (_shareImageUrl) {
+        //如果没有拉到故事插图就分享故事的url
+        item = [SHKItem text:[NSString stringWithFormat:@"我家宝贝正在听#%@#，推荐大家下载#宝贝听听#，10,000个儿童故事立刻全部拥有，iPhone下载地址：%@",storyName,@"http://url.cn/0WpS2x"]];
+        item.URL = [NSURL URLWithString:_shareImageUrl];
+        item.shareType = SHKShareTypeURL;
+    }else if (picImage){
+        item = [SHKItem image:picImage title:[NSString stringWithFormat:@"我家宝贝正在听#%@#，推荐大家下载#宝贝听听#，10,000个儿童故事立刻全部拥有，iPhone下载地址：%@",storyName,@"http://url.cn/0WpS2x"]];
+        item.shareType = SHKShareTypeImage;
+    }else {
+        item = [SHKItem image:sharePicImage title:[NSString stringWithFormat:@"我家宝贝正在听#%@#，推荐大家下载#宝贝听听#，10,000个儿童故事立刻全部拥有，iPhone下载地址：%@",storyName,@"http://url.cn/0WpS2x"]];
+        item.shareType = SHKShareTypeImage;
+    }
+    [NSClassFromString(@"SHKTencent") performSelector:@selector(shareItem:) withObject:item];
+    
+
+}
+
+- (void)clickSinaItem {
+    NSString *sharePicName = [self getSharePicName];
+    UIImage *picImage = [UIImage imageWithContentsOfFile:sharePicName];
+    BTStory *story = (BTStory *)[_playList objectAtIndex:_playingStoryIndex];
+    NSString *storyName = story.title;
+    _shareImageUrl = [story.picDownLoadURLs objectAtIndex:0];
+    CDLog(BTDFLAG_SINA_SHARE_ERROR,@"_shareImageUrl = %@",_shareImageUrl);
+    SHKItem *item;
+    if (_shareImageUrl) {
+        item = [SHKItem text:[NSString stringWithFormat:@"我家宝贝正在听#%@#，推荐大家下载#宝贝听听#，10,000个儿童故事立刻全部拥有，iPhone下载地址：%@",storyName,@"http://url.cn/0WpS2x"]];
+        item.URL = [NSURL URLWithString:_shareImageUrl];
+        item.shareType = SHKShareTypeImage;
+        
+    }else if (picImage){
+        item = [SHKItem image:picImage title:[NSString stringWithFormat:@"我家宝贝正在听#%@#，推荐大家下载#宝贝听听#，10,000个儿童故事立刻全部拥有，iPhone下载地址：%@",storyName,@"http://url.cn/0WpS2x"]];
+        item.shareType = SHKShareTypeImage;
+    }else {
+        item = [SHKItem image:sharePicImage title:[NSString stringWithFormat:@"我家宝贝正在听#%@#，推荐大家下载#宝贝听听#，10,000个儿童故事立刻全部拥有，iPhone下载地址：%@",storyName,@"http://url.cn/0WpS2x"]];
+        item.shareType = SHKShareTypeImage;
+    }
+    
+    sharePicImage = nil;
+    [NSClassFromString(@"SHKSina") performSelector:@selector(shareItem:) withObject:item];
+    
+}
+
+-(void)clickWeixinItem{
+    
+    
+    if (![WXApi isWXAppInstalled]) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"暂未安装微信" message:@"安装后才能分享喔~" delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_NO_WEIXIN object:nil];
+        return;
+    }
+    if (![WXApi isWXAppSupportApi]) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"当前微信版本不支持" message:@"更新到最新版才能分享喔~" delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
+        [alert show];
+        [alert release];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_NO_WEIXIN object:nil];
+        
+        return;
+    }
+    BTStory *story = (BTStory *)[_playList objectAtIndex:_playingStoryIndex];
+    NSString *storyName = story.title;
+    
+    
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = @"宝贝听听";
+    message.description = [NSString stringWithFormat:@"正在收听《%@》，这里有上万个儿童故事，推荐使用~",storyName];
+    
+    
+    NSString *storyID = story.storyId;
+    
+    UIImage *sendImage = nil;
+    if (storyID) {
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@_storyIcon",THREE20_DIRECTORY,storyID];
+        UIImage *coverImage = [UIImage imageWithContentsOfFile:filePath];
+        if (coverImage && !sendImage) {
+            sendImage = [VSImageHelp image:coverImage fitInSize:CGSizeMake(130, 130)];
+        }
+    }
+    [message setThumbImage:sendImage];
+    
+    WXAppExtendObject *ext = [WXAppExtendObject object];
+    ext.extInfo = nil;
+    
+    ext.url = nil;
+    
+    Byte* pBuffer = (Byte *)malloc(BUFFER_SIZE);
+    memset(pBuffer, 0, BUFFER_SIZE);
+    NSData* data = [NSData dataWithBytes:pBuffer length:BUFFER_SIZE];
+    free(pBuffer);
+    
+    ext.fileData = data;
+    
+    message.mediaObject = ext;
+    BTAppDelegate *delegate = (BTAppDelegate *)[[UIApplication sharedApplication] delegate];
+	[delegate sendAppContent:message isMulti:NO];
+    
+}
+
+//- (BOOL)localStoryIsFull {
+//    NSString *localfilePath1 = [BTUtilityClass fileWithPath:LOCALSTORY_PLIST_NAME];
+//    NSMutableArray *localArray1 = [NSMutableArray arrayWithContentsOfFile:localfilePath1];
+//    NSString *localfilePath2 = [BTUtilityClass fileWithPath:DOWNLOAD_PLIST_NAME];
+//    NSMutableArray *localArray2 = [NSMutableArray arrayWithContentsOfFile:localfilePath2];
+//    int localStoryNum1 = [localArray1 count];
+//    int localStoryNum2 = [localArray2 count];
+//    if (localStoryNum1 + localStoryNum2 >= MAXNUMBER_OF_LOCAL) {
+//        return YES;
+//    }
+//    return NO;
+//}
+
+
+-(NSString *)getSharePicName {
+    
+    BTStory *story = (BTStory *)[_playList objectAtIndex:_playingStoryIndex];
+    NSString *storyID = story.storyId;
+    NSString *sharePicName = [NSString stringWithFormat:@"%@/%@_storyPlayView",THREE20_DIRECTORY,storyID];
+    return sharePicName;
+}
+-(void)dealloc {
+    [_shareImageUrl release];
+    [_playList release];
+    [self destroyStreamer];
+    [super dealloc];
+}
+
+#pragma - RMShareComponentDelegate
+
+/**
+ *zh
+ * 人人分享界面回调
+ * 当分享取消时，关闭分享界面，delegate受到此回调
+ *
+ *en
+ * Call-back method for Renren share view controller.
+ * Will be called when Renren share view controller be closed while user cancels share.
+ */
+
+- (void)didCloseToShareCancel;{
+    BTAppDelegate *delegate = (BTAppDelegate *)[UIApplication sharedApplication].delegate;
+    delegate.isRenrenShareShowing = NO;
+}
+/**
+ *zh
+ * 人人分享界面回调
+ * 当分享成功时，关闭分享界面，delegate受到此回调
+ *
+ *en
+ * Call-back method for Renren share view controller.
+ * Will be called when Renren share view controller be closed for the reason of share success.
+ */
+- (void)didCloseToShareSuccess;{
+    BTAppDelegate *delegate = (BTAppDelegate *)[UIApplication sharedApplication].delegate;
+    delegate.isRenrenShareShowing = NO;
+}
+
+@end
