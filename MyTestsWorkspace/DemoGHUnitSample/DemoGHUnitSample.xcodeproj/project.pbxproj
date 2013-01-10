@@ -27,9 +27,10 @@
 		E4324575169F06FB0030BCCB /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4324574169F06FB0030BCCB /* GHUnitIOS.framework */; };
 		E4324576169F06FB0030BCCB /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4324574169F06FB0030BCCB /* GHUnitIOS.framework */; };
 		E4324580169F08CB0030BCCB /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4324578169F08CA0030BCCB /* libOCMock.a */; };
-		E4324585169F09BA0030BCCB /* OCMockSampleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E4324584169F09BA0030BCCB /* OCMockSampleTest.m */; };
 		E4324588169F0AAA0030BCCB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4324586169F0A9F0030BCCB /* QuartzCore.framework */; };
 		E43245A2169F17E10030BCCB /* GHTestCase+OCMock.m in Sources */ = {isa = PBXBuildFile; fileRef = E43245A1169F17E10030BCCB /* GHTestCase+OCMock.m */; };
+		E43245A5169F18990030BCCB /* MyExampleTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E43245A4169F18990030BCCB /* MyExampleTestCase.m */; };
+		E43245A8169F20C40030BCCB /* OCMockObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E43245A7169F20C40030BCCB /* OCMockObjectTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,11 +63,13 @@
 		E432457D169F08CA0030BCCB /* OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMock.h; sourceTree = "<group>"; };
 		E432457E169F08CA0030BCCB /* OCMockObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObject.h; sourceTree = "<group>"; };
 		E432457F169F08CA0030BCCB /* OCMockRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockRecorder.h; sourceTree = "<group>"; };
-		E4324583169F09BA0030BCCB /* OCMockSampleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockSampleTest.h; sourceTree = "<group>"; };
-		E4324584169F09BA0030BCCB /* OCMockSampleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockSampleTest.m; sourceTree = "<group>"; };
 		E4324586169F0A9F0030BCCB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E43245A0169F17E10030BCCB /* GHTestCase+OCMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GHTestCase+OCMock.h"; sourceTree = "<group>"; };
 		E43245A1169F17E10030BCCB /* GHTestCase+OCMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GHTestCase+OCMock.m"; sourceTree = "<group>"; };
+		E43245A3169F18990030BCCB /* MyExampleTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyExampleTestCase.h; sourceTree = "<group>"; };
+		E43245A4169F18990030BCCB /* MyExampleTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyExampleTestCase.m; sourceTree = "<group>"; };
+		E43245A6169F20C40030BCCB /* OCMockObjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObjectTests.h; sourceTree = "<group>"; };
+		E43245A7169F20C40030BCCB /* OCMockObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockObjectTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,8 +221,10 @@
 		E4324582169F09930030BCCB /* TestCases */ = {
 			isa = PBXGroup;
 			children = (
-				E4324583169F09BA0030BCCB /* OCMockSampleTest.h */,
-				E4324584169F09BA0030BCCB /* OCMockSampleTest.m */,
+				E43245A6169F20C40030BCCB /* OCMockObjectTests.h */,
+				E43245A7169F20C40030BCCB /* OCMockObjectTests.m */,
+				E43245A3169F18990030BCCB /* MyExampleTestCase.h */,
+				E43245A4169F18990030BCCB /* MyExampleTestCase.m */,
 			);
 			path = TestCases;
 			sourceTree = "<group>";
@@ -337,8 +342,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4324565169F06EE0030BCCB /* main.m in Sources */,
-				E4324585169F09BA0030BCCB /* OCMockSampleTest.m in Sources */,
 				E43245A2169F17E10030BCCB /* GHTestCase+OCMock.m in Sources */,
+				E43245A5169F18990030BCCB /* MyExampleTestCase.m in Sources */,
+				E43245A8169F20C40030BCCB /* OCMockObjectTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

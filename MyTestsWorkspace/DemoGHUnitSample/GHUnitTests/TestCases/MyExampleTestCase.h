@@ -1,5 +1,5 @@
 //
-//  OCMockSampleTest.h
+//  MyExampleTestCase.h
 //  DemoGHUnitSample
 //
 //  Created by Song Zhipeng on 1/10/13.
@@ -8,6 +8,6 @@
 
 #import <GHUnitIOS/GHUnit.h>
 
-@interface OCMockSampleTest : GHTestCase
+@interface MyExampleTestCase : GHTestCase
 
 @end

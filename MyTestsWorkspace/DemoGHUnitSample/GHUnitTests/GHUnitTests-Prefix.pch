@@ -12,5 +12,6 @@
 	#import <UIKit/UIKit.h>
 	#import <Foundation/Foundation.h>
 	#import <GHUnitIOS/GHUnit.h>
-	#import "GHTestCase+OCMock.h"
+	#import <OCMock/OCMock.h>
+	#import "GHTestCase+OCMock.h"//add by Zero
 #endif
