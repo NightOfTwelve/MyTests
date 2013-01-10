@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'ZZPokerRoller1' target in the 'ZZPokerRoller1' project
+// Prefix header for all source files of the 'GHUnitTests' target in the 'GHUnitTests' project
 //
 
 #import <Availability.h>
@@ -11,5 +11,8 @@
 #ifdef __OBJC__
 	#import <UIKit/UIKit.h>
 	#import <Foundation/Foundation.h>
-	#import "NSManagedObject+ActiveRecord.h"
+	#import <GHUnitIOS/GHUnit.h>
+	#import <CoreData/CoreData.h>
+	#import "MagicalRecord.h"
+#import "CoreData+MagicalRecord.h"
 #endif
