@@ -31,9 +31,26 @@
 @implementation MyExampleTestCase
 
 #pragma mark -
+- (void)test2 {
+	id mock = [OCMockObject mockForClass:NSString.class];
+	[[mock stub] lowercaseString];
+	GHAssertThrows([mock uppercaseString],nil);
+}
+
+- (void)test3 {
+	id mock = [OCMockObject mockForClass:[ClassB class]];
+	[[[mock expect] andReturn:@"2"] testString:OCMOCK_ANY];
+//	NSString *ret = [mock testString:@"1"];
+//	GHAssertEqualStrings(ret, @"2", nil);
+	GHAssertThrows([mock verify],nil);
+}
+
 - (void)test1 {
 	id mock = [OCMockObject mockForClass:[ClassB class]];
 	[[[mock stub] andReturn:@"2"] testString:OCMOCK_ANY];
+	/*
+	 stub 构造接口返回信息，但不验证，expect和stub在实现上的区别是，在mockobject上有个expectations数组，expect后会把stub后的对象加到该数组，verify时候对expectations数组验证。
+	 */
 	
 //	[[mock expect] testString:@"1"];//预期
 	
