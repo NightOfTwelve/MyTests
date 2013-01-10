@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA0913D6169EC7A800BF74CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0913D5169EC7A800BF74CF /* UIKit.framework */; };
+		DA0913D8169EC7A800BF74CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0913D7169EC7A800BF74CF /* Foundation.framework */; };
+		DA0913DA169EC7A800BF74CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0913D9169EC7A800BF74CF /* CoreGraphics.framework */; };
+		DA0913E0169EC7A800BF74CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA0913DE169EC7A800BF74CF /* InfoPlist.strings */; };
+		DA0913E2169EC7A800BF74CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0913E1169EC7A800BF74CF /* main.m */; };
+		DA0913E6169EC7A800BF74CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0913E5169EC7A800BF74CF /* AppDelegate.m */; };
+		DA0913E8169EC7A800BF74CF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DA0913E7169EC7A800BF74CF /* Default.png */; };
+		DA0913EA169EC7A800BF74CF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA0913E9169EC7A800BF74CF /* Default@2x.png */; };
+		DA0913EC169EC7A800BF74CF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA0913EB169EC7A800BF74CF /* Default-568h@2x.png */; };
+		DA0913F4169EC7A900BF74CF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0913F3169EC7A900BF74CF /* SenTestingKit.framework */; };
+		DA0913F5169EC7A900BF74CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0913D5169EC7A800BF74CF /* UIKit.framework */; };
+		DA0913F6169EC7A900BF74CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0913D7169EC7A800BF74CF /* Foundation.framework */; };
+		DA0913FE169EC7A900BF74CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA0913FC169EC7A900BF74CF /* InfoPlist.strings */; };
+		DA091401169EC7A900BF74CF /* ZZPokerRoller1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA091400169EC7A900BF74CF /* ZZPokerRoller1Tests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DA0913F7169EC7A900BF74CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA0913C8169EC7A800BF74CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA0913D0169EC7A800BF74CF;
+			remoteInfo = ZZPokerRoller1;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DA0913D1169EC7A800BF74CF /* ZZPokerRoller1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZZPokerRoller1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA0913D5169EC7A800BF74CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DA0913D7169EC7A800BF74CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DA0913D9169EC7A800BF74CF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DA0913DD169EC7A800BF74CF /* ZZPokerRoller1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZZPokerRoller1-Info.plist"; sourceTree = "<group>"; };
+		DA0913DF169EC7A800BF74CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DA0913E1169EC7A800BF74CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DA0913E3169EC7A800BF74CF /* ZZPokerRoller1-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZZPokerRoller1-Prefix.pch"; sourceTree = "<group>"; };
+		DA0913E4169EC7A800BF74CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DA0913E5169EC7A800BF74CF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DA0913E7169EC7A800BF74CF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		DA0913E9169EC7A800BF74CF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		DA0913EB169EC7A800BF74CF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		DA0913F2169EC7A900BF74CF /* ZZPokerRoller1Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZZPokerRoller1Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA0913F3169EC7A900BF74CF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		DA0913FB169EC7A900BF74CF /* ZZPokerRoller1Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZZPokerRoller1Tests-Info.plist"; sourceTree = "<group>"; };
+		DA0913FD169EC7A900BF74CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DA0913FF169EC7A900BF74CF /* ZZPokerRoller1Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZPokerRoller1Tests.h; sourceTree = "<group>"; };
+		DA091400169EC7A900BF74CF /* ZZPokerRoller1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZPokerRoller1Tests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA0913CE169EC7A800BF74CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA0913D6169EC7A800BF74CF /* UIKit.framework in Frameworks */,
+				DA0913D8169EC7A800BF74CF /* Foundation.framework in Frameworks */,
+				DA0913DA169EC7A800BF74CF /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA0913EE169EC7A900BF74CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA0913F4169EC7A900BF74CF /* SenTestingKit.framework in Frameworks */,
+				DA0913F5169EC7A900BF74CF /* UIKit.framework in Frameworks */,
+				DA0913F6169EC7A900BF74CF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA0913C6169EC7A800BF74CF = {
+			isa = PBXGroup;
+			children = (
+				DA0913DB169EC7A800BF74CF /* ZZPokerRoller1 */,
+				DA0913F9169EC7A900BF74CF /* ZZPokerRoller1Tests */,
+				DA0913D4169EC7A800BF74CF /* Frameworks */,
+				DA0913D2169EC7A800BF74CF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA0913D2169EC7A800BF74CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA0913D1169EC7A800BF74CF /* ZZPokerRoller1.app */,
+				DA0913F2169EC7A900BF74CF /* ZZPokerRoller1Tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA0913D4169EC7A800BF74CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA0913D5169EC7A800BF74CF /* UIKit.framework */,
+				DA0913D7169EC7A800BF74CF /* Foundation.framework */,
+				DA0913D9169EC7A800BF74CF /* CoreGraphics.framework */,
+				DA0913F3169EC7A900BF74CF /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA0913DB169EC7A800BF74CF /* ZZPokerRoller1 */ = {
+			isa = PBXGroup;
+			children = (
+				DA0913E4169EC7A800BF74CF /* AppDelegate.h */,
+				DA0913E5169EC7A800BF74CF /* AppDelegate.m */,
+				DA0913DC169EC7A800BF74CF /* Supporting Files */,
+			);
+			path = ZZPokerRoller1;
+			sourceTree = "<group>";
+		};
+		DA0913DC169EC7A800BF74CF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA0913DD169EC7A800BF74CF /* ZZPokerRoller1-Info.plist */,
+				DA0913DE169EC7A800BF74CF /* InfoPlist.strings */,
+				DA0913E1169EC7A800BF74CF /* main.m */,
+				DA0913E3169EC7A800BF74CF /* ZZPokerRoller1-Prefix.pch */,
+				DA0913E7169EC7A800BF74CF /* Default.png */,
+				DA0913E9169EC7A800BF74CF /* Default@2x.png */,
+				DA0913EB169EC7A800BF74CF /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA0913F9169EC7A900BF74CF /* ZZPokerRoller1Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DA0913FF169EC7A900BF74CF /* ZZPokerRoller1Tests.h */,
+				DA091400169EC7A900BF74CF /* ZZPokerRoller1Tests.m */,
+				DA0913FA169EC7A900BF74CF /* Supporting Files */,
+			);
+			path = ZZPokerRoller1Tests;
+			sourceTree = "<group>";
+		};
+		DA0913FA169EC7A900BF74CF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA0913FB169EC7A900BF74CF /* ZZPokerRoller1Tests-Info.plist */,
+				DA0913FC169EC7A900BF74CF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA0913D0169EC7A800BF74CF /* ZZPokerRoller1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA091404169EC7A900BF74CF /* Build configuration list for PBXNativeTarget "ZZPokerRoller1" */;
+			buildPhases = (
+				DA0913CD169EC7A800BF74CF /* Sources */,
+				DA0913CE169EC7A800BF74CF /* Frameworks */,
+				DA0913CF169EC7A800BF74CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZZPokerRoller1;
+			productName = ZZPokerRoller1;
+			productReference = DA0913D1169EC7A800BF74CF /* ZZPokerRoller1.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DA0913F1169EC7A900BF74CF /* ZZPokerRoller1Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA091407169EC7A900BF74CF /* Build configuration list for PBXNativeTarget "ZZPokerRoller1Tests" */;
+			buildPhases = (
+				DA0913ED169EC7A900BF74CF /* Sources */,
+				DA0913EE169EC7A900BF74CF /* Frameworks */,
+				DA0913EF169EC7A900BF74CF /* Resources */,
+				DA0913F0169EC7A900BF74CF /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA0913F8169EC7A900BF74CF /* PBXTargetDependency */,
+			);
+			name = ZZPokerRoller1Tests;
+			productName = ZZPokerRoller1Tests;
+			productReference = DA0913F2169EC7A900BF74CF /* ZZPokerRoller1Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA0913C8169EC7A800BF74CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = 21kunpeng;
+			};
+			buildConfigurationList = DA0913CB169EC7A800BF74CF /* Build configuration list for PBXProject "ZZPokerRoller1" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DA0913C6169EC7A800BF74CF;
+			productRefGroup = DA0913D2169EC7A800BF74CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA0913D0169EC7A800BF74CF /* ZZPokerRoller1 */,
+				DA0913F1169EC7A900BF74CF /* ZZPokerRoller1Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA0913CF169EC7A800BF74CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA0913E0169EC7A800BF74CF /* InfoPlist.strings in Resources */,
+				DA0913E8169EC7A800BF74CF /* Default.png in Resources */,
+				DA0913EA169EC7A800BF74CF /* Default@2x.png in Resources */,
+				DA0913EC169EC7A800BF74CF /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA0913EF169EC7A900BF74CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA0913FE169EC7A900BF74CF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DA0913F0169EC7A900BF74CF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA0913CD169EC7A800BF74CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA0913E2169EC7A800BF74CF /* main.m in Sources */,
+				DA0913E6169EC7A800BF74CF /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA0913ED169EC7A900BF74CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA091401169EC7A900BF74CF /* ZZPokerRoller1Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA0913F8169EC7A900BF74CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA0913D0169EC7A800BF74CF /* ZZPokerRoller1 */;
+			targetProxy = DA0913F7169EC7A900BF74CF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DA0913DE169EC7A800BF74CF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA0913DF169EC7A800BF74CF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DA0913FC169EC7A900BF74CF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA0913FD169EC7A900BF74CF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA091402169EC7A900BF74CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		DA091403169EC7A900BF74CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA091405169EC7A900BF74CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZZPokerRoller1/ZZPokerRoller1-Prefix.pch";
+				INFOPLIST_FILE = "ZZPokerRoller1/ZZPokerRoller1-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DA091406169EC7A900BF74CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZZPokerRoller1/ZZPokerRoller1-Prefix.pch";
+				INFOPLIST_FILE = "ZZPokerRoller1/ZZPokerRoller1-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		DA091408169EC7A900BF74CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZZPokerRoller1.app/ZZPokerRoller1";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZZPokerRoller1/ZZPokerRoller1-Prefix.pch";
+				INFOPLIST_FILE = "ZZPokerRoller1Tests/ZZPokerRoller1Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		DA091409169EC7A900BF74CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ZZPokerRoller1.app/ZZPokerRoller1";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ZZPokerRoller1/ZZPokerRoller1-Prefix.pch";
+				INFOPLIST_FILE = "ZZPokerRoller1Tests/ZZPokerRoller1Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA0913CB169EC7A800BF74CF /* Build configuration list for PBXProject "ZZPokerRoller1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA091402169EC7A900BF74CF /* Debug */,
+				DA091403169EC7A900BF74CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA091404169EC7A900BF74CF /* Build configuration list for PBXNativeTarget "ZZPokerRoller1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA091405169EC7A900BF74CF /* Debug */,
+				DA091406169EC7A900BF74CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DA091407169EC7A900BF74CF /* Build configuration list for PBXNativeTarget "ZZPokerRoller1Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA091408169EC7A900BF74CF /* Debug */,
+				DA091409169EC7A900BF74CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA0913C8169EC7A800BF74CF /* Project object */;
+}
