@@ -475,9 +475,6 @@
          </FileRef>
       </Group>
    </Group>
-   <FileRef
-      location = "group:DemoGHUnitSample/DemoGHUnitSample.xcodeproj">
-   </FileRef>
    <Group
       location = "group:TestLock"
       name = "TestLock">
@@ -485,4 +482,7 @@
          location = "group:TestLock/TestLock.xcodeproj">
       </FileRef>
    </Group>
+   <FileRef
+      location = "group:DemoGHUnitSample/DemoGHUnitSample.xcodeproj">
+   </FileRef>
 </Workspace>
