@@ -38,7 +38,7 @@
 	return [[[OCClassMockObject alloc] initWithClass:aClass] autorelease];
 }
 
-+ (id)mockForClassObject:(Class)aClass;
++ (id)mockForClassObject:(Class)aClass
 {
     return [[[OCMockClassObject alloc] initWithClass:aClass] autorelease];
 }
