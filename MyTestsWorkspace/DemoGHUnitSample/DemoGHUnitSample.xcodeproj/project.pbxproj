@@ -31,6 +31,7 @@
 		E43245A2169F17E10030BCCB /* GHTestCase+OCMock.m in Sources */ = {isa = PBXBuildFile; fileRef = E43245A1169F17E10030BCCB /* GHTestCase+OCMock.m */; };
 		E43245A5169F18990030BCCB /* MyExampleTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E43245A4169F18990030BCCB /* MyExampleTestCase.m */; };
 		E43245A8169F20C40030BCCB /* OCMockObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E43245A7169F20C40030BCCB /* OCMockObjectTests.m */; };
+		E4F6368A16A1C6E4007B4766 /* MyExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F6368916A1C6E4007B4766 /* MyExampleTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,8 @@
 		E43245A4169F18990030BCCB /* MyExampleTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyExampleTestCase.m; sourceTree = "<group>"; };
 		E43245A6169F20C40030BCCB /* OCMockObjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockObjectTests.h; sourceTree = "<group>"; };
 		E43245A7169F20C40030BCCB /* OCMockObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockObjectTests.m; sourceTree = "<group>"; };
+		E4F6368816A1C6E4007B4766 /* MyExampleTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyExampleTests.h; sourceTree = "<group>"; };
+		E4F6368916A1C6E4007B4766 /* MyExampleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyExampleTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +228,8 @@
 				E43245A7169F20C40030BCCB /* OCMockObjectTests.m */,
 				E43245A3169F18990030BCCB /* MyExampleTestCase.h */,
 				E43245A4169F18990030BCCB /* MyExampleTestCase.m */,
+				E4F6368816A1C6E4007B4766 /* MyExampleTests.h */,
+				E4F6368916A1C6E4007B4766 /* MyExampleTests.m */,
 			);
 			path = TestCases;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				E43245A2169F17E10030BCCB /* GHTestCase+OCMock.m in Sources */,
 				E43245A5169F18990030BCCB /* MyExampleTestCase.m in Sources */,
 				E43245A8169F20C40030BCCB /* OCMockObjectTests.m in Sources */,
+				E4F6368A16A1C6E4007B4766 /* MyExampleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

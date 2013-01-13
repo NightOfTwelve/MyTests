@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:DemoStatistics/DemoStatistics.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:TestLock/TestLock.xcodeproj">
    </FileRef>
    <FileRef

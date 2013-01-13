@@ -1,1 +1,1 @@
-git push -u origin
+git pull -u origin

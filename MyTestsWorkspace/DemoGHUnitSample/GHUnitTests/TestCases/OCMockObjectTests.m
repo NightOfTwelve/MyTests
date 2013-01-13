@@ -98,9 +98,9 @@ static NSString *TestNotification = @"TestNotification";
 }
 
 
-// --------------------------------------------------------------------------------------
-//	accepting stubbed methods / rejecting methods not stubbed
-// --------------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------------
+	accepting stubbed methods / rejecting methods not stubbed
+ --------------------------------------------------------------------------------------
 
 - (void)testAcceptsStubbedMethod
 {
