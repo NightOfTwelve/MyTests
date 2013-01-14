@@ -4,25 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>DemoGHUnitSample.xcscheme</key>
+		<key>DemoStatistics.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>4</integer>
 		</dict>
-		<key>GHUnitTests.xcscheme</key>
+		<key>DemoStatisticsTests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>E4324533169F06880030BCCB</key>
+		<key>E4F636A316A1C89C007B4766</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E4324558169F06EE0030BCCB</key>
+		<key>E4F636C816A1C8DA007B4766</key>
 		<dict>
 			<key>primary</key>
 			<true/>

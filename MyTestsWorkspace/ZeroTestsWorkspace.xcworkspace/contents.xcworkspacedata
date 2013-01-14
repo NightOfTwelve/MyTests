@@ -2,13 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:DemoCoreData20130114/DemoCoreData20130114.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:DemoStatistics/DemoStatistics.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:TestLock/TestLock.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:TestCoreData+GHUnit+OCMock/TestCoreData+GHUnit+OCMock.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:DemoGHUnitSample/DemoGHUnitSample.xcodeproj">
