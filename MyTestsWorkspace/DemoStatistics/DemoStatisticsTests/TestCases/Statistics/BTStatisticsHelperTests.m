@@ -12,6 +12,7 @@
 @implementation BTStatisticsHelperTests
 
 - (void)setUp {
+	[MagicalRecord setDefaultModelFromClass:[self class]];
 	[MagicalRecord setupCoreDataStackWithInMemoryStore];
 }
 
